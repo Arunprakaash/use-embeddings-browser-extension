@@ -1,0 +1,33 @@
+{
+  "name": "use-embeddings-extension",
+  "version": "1.0.0",
+  "description": "Browser extension to generate text embeddings using Universal Sentence Encoder",
+  "scripts": {
+    "copy": "mkdir -p dist/src && cp src/popup.html dist/src/ && cp manifest.json dist",
+    "build": "parcel build src/service_worker.js src/popup.js --dist-dir dist/src/ && npm run copy",
+    "watch": "parcel watch src/service_worker.js src/popup.js --dist-dir dist/src/ & npm run copy",
+    "dev": "npm run copy && npm run watch"
+  },
+  "keywords": [
+    "embeddings",
+    "nlp",
+    "universal-sentence-encoder",
+    "browser-extension"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "clang-format": "^1.8.0",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "resolutions": {
+    "node-fetch": "3.3.2"
+  },
+  "dependencies": {
+    "@tensorflow-models/universal-sentence-encoder": "^1.3.3",
+    "@tensorflow/tfjs": "^4.21.0",
+    "node-fetch": "3.3.2"
+  }
+}

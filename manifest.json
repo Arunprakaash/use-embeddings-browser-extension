@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "use-embeddings-extension",
+  "version": "1.0",
+  "description": "Browser extension to generate text embeddings using Universal Sentence Encoder",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "src/popup.html"
+  },
+  "background": {
+    "service_worker": "src/service_worker.js"
+  }
+}
