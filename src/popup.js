@@ -50,11 +50,13 @@ async function getEmbedding(text) {
         await loadModel();
     }
 
-    const cachedEmbeddings = await getCachedEmbeddings(text);
-    if (cachedEmbeddings) {
-        return cachedEmbeddings;
+    const cachedEmbedding = await getCachedEmbeddings(text);
+    if (cachedEmbedding) {
+        console.log('Using cached embedding');
+        return [cachedEmbedding];
     }
 
+    console.log('Generating new embedding');
     const embeddings = await model.embed([text]);
     const result = Array.from(await embeddings.array());
     await cacheEmbeddings(text, result[0]);
